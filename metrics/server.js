@@ -13,9 +13,27 @@ class IAQMetrics {
         return Date.now() - this.lastReading
     }
 
+    // Estimate pm2.5 micrograms per cubic metre
+    estimatePm25() {
+        // Per http://www.aqmd.gov/docs/default-source/aq-spec/field-evaluations/dylos-dc1100---field-evaluation.pdf?sfvrsn=2
+        // We can estimate PM2.5 ug/m³ from Dylos #/ft³ with this formula:
+        // y = -8E-12x² + 5E-05x + 3.9773
+        // R² = 0.8145 agreement with a GRIMM Model 180 (gold standard)
+
+        const a = -8 * Math.pow(10, -12) // -8E-12
+        const b = 5 * Math.pow(10, -5) // 5E-05
+        const c = 3.9773
+
+        const x = this.small
+        const estimate = a*Math.pow(x, 2) + b*x + c
+
+        return Math.round(estimate * 10) / 10
+    }
+
     toPrometheusFormat() {
         return `iaq_monitor_reading_small ${this.small}\n` +
-            `iaq_monitor_reading_large ${this.large}\n`
+            `iaq_monitor_reading_large ${this.large}\n` +
+            `iaq_monitor_pm25 ${this.estimatePm25()}\n`
     }
 }
 IAQMetrics.createNow = (large, small) => new IAQMetrics(large, small, Date.now())
