@@ -9,8 +9,16 @@ This project exists because I was [concerned about the accuracy of consumer-grad
 - Provides reporting information to the Prometheus time series database
 - Bundled Grafana to create dashboards
 
+## Future Plans
+- Read the serial port format directly
+- Label Prometheus data with data identifying the sensor unit
+- AWS IoT device integration (alternative to Prometheus + Grafana)
+- AWS IoT CloudFormation templates (roll your own cloud)
+- Raspberry Pi monitoring unit
+
 ## Overall System
-My setup includes the following:
+At home, my setup includes the following:
+
 - Dylos DC1100 Pro unit (with serial port)
 - IOGEAR GBC232A Class 1 Bluetooth serial transmitter
 - Generic Class 1 Bluetooth dongle on my desktop
