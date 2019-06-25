@@ -20,12 +20,12 @@ class IAQMetrics {
         // y = -8E-12x² + 5E-05x + 3.9773
         // R² = 0.8145 agreement with a GRIMM Model 180 (gold standard)
 
-        const a = -8 * Math.pow(10, -12) // -8E-12
-        const b = 5 * Math.pow(10, -5) // 5E-05
+        const a = -8 * 10**-12 // -8E-12
+        const b = 5 * 10**-5 // 5E-05
         const c = 3.9773
 
         const x = this.small
-        const estimate = a*Math.pow(x, 2) + b*x + c
+        const estimate = a*x**2 + b*x + c
 
         return Math.round(estimate * 10) / 10
     }
