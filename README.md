@@ -1,7 +1,11 @@
 # iaq-monitor
 This is a project for my home to monitor and better manage my indoor air quality.
 
-This project exists because I was [concerned about the accuracy of consumer-grade air quality monitors](http://explorables.cmucreatelab.org/explorables/air-quality-monitor-tests/)  such as the Air Quality Egg PM, Awair, Foobot, and Speck, despite their nice-have features. On the other hand, the Dylos DC1100 Pro is relatively affordable, has a serial data port, and [tracks well](http://www.aqmd.gov/docs/default-source/aq-spec/field-evaluations/dylos-dc1100---field-evaluation.pdf?sfvrsn=2) with the EPA-approved Grimm Model 180.
+This project exists because I was [concerned about the accuracy of consumer-grade air quality monitors](http://explorables.cmucreatelab.org/explorables/air-quality-monitor-tests/)  such as the Air Quality Egg PM, Awair, Foobot, and Speck, despite their nice-have features.
+
+The Dylos DC1100 Pro is [relatively affordable](http://www.dylosproducts.com/dcproairqumo.html) air quality sensor, has a serial data port, and [tracks well](http://www.aqmd.gov/docs/default-source/aq-spec/field-evaluations/dylos-dc1100---field-evaluation.pdf?sfvrsn=2) with the EPA-approved Grimm Model 180. Dylos units have a PC logging software, but it is prone to losing data due, can't track multiple units, has no alerting capabilities, and doesn't estimate mass concentration from particle counts.
+
+Therefore, this project seeks to address these issues by integrating with a common time-series database, reporting software, and IoT infrastructure that collectively provide the missing features.
 
 ## Features
 - Continuously monitors air quality
