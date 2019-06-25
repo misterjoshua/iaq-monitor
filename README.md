@@ -15,6 +15,7 @@ This project exists because I was [concerned about the accuracy of consumer-grad
 - AWS IoT device integration (alternative to Prometheus + Grafana)
 - AWS IoT CloudFormation templates (roll your own cloud)
 - Raspberry Pi monitoring unit
+- Documentation
 
 ## Overall System
 At home, my setup includes the following:
