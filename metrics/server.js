@@ -73,8 +73,11 @@ function tryParseLogLine(line) {
 /////////////////////////////
 
 // Config
-const port = 9091
-const logFile = "C:\\Users\\joshk\\Documents\\Dylos Logs\\DylosLog.txt"
+const logFile = process.argv[2] || "C:\\Users\\joshk\\Documents\\Dylos Logs\\DylosLog.txt"
+const port = process.argv[3] || 9091
+
+console.log(`Attempting to use logFile: ${logFile}`)
+console.log(`Will bind to port ${port}`)
 
 // Current reading levels
 var currentMetrics = new IAQMetrics()
